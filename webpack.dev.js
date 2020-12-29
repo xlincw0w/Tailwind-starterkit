@@ -4,9 +4,9 @@ const path = require('path')
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/index.js',
+        index: './src/index.tsx',
     },
-
+      
     devtool: 'cheap-module-source-map',
     devServer: {
         historyApiFallback: true,
@@ -41,6 +41,18 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
+            {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
@@ -60,19 +72,16 @@ module.exports = {
                 test: /\.xml$/,
                 use: ['xml-loader'],
             },
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                },
-            },
         ],
+    },
+
+    resolve: {
+        extensions: [".js", ".json", ".ts", ".tsx"],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './public/index.html',
             // favicon: './pngtitle.ico'
         }),
     ],
