@@ -11,3 +11,5 @@ reactDOM.render(
     // </Provider>,
     document.getElementById('root') as HTMLElement
 )
+
+let a: number = 5
