@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
     mode: 'production',
@@ -40,6 +40,10 @@ module.exports = {
                 use: ['file-loader'],
             },
             {
+                test: /\.(mp4|webm)$/,
+                use: ['file-loader'],
+            },
+            {
                 test: /\.(csv|tsv)$/,
                 use: ['csv-loader'],
             },
@@ -51,14 +55,14 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [".js", ".json", ".ts", ".tsx"],
+        extensions: ['.js', '.json', '.ts', '.tsx'],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            // favicon: './pngtitle.ico'
-        })
+            favicon: './favicon.ico',
+        }),
     ],
 
     optimization: {
@@ -66,5 +70,4 @@ module.exports = {
             chunks: 'all',
         },
     },
-
-};
+}

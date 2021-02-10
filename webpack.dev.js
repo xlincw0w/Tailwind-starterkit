@@ -6,12 +6,12 @@ module.exports = {
     entry: {
         index: './src/index.tsx',
     },
-      
+
     devtool: 'cheap-module-source-map',
     devServer: {
         historyApiFallback: true,
         host: '0.0.0.0',
-        port: 3000,
+        port: process.env.PORT || 3000,
         contentBase: './dist',
         hot: true,
         stats: {
@@ -65,6 +65,10 @@ module.exports = {
                 use: ['file-loader'],
             },
             {
+                test: /\.(mp4|webm)$/,
+                use: ['file-loader'],
+            },
+            {
                 test: /\.(csv|tsv)$/,
                 use: ['csv-loader'],
             },
@@ -76,13 +80,13 @@ module.exports = {
     },
 
     resolve: {
-        extensions: [".js", ".json", ".ts", ".tsx"],
+        extensions: ['.js', '.json', '.ts', '.tsx'],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            // favicon: './pngtitle.ico'
+            favicon: './favicon.ico',
         }),
     ],
 }

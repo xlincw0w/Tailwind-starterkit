@@ -5,7 +5,16 @@ module.exports = {
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                openSans: ['OpenSans'],
+            },
+            spacing: {
+                128: '32rem',
+                144: '36rem',
+                192: '48rem',
+            },
+        },
     },
     variants: {
         extend: {},

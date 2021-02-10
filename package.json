@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "tailwind-starterkit",
     "scripts": {
-        "start": "tailwind build ./src/Tailwind/index.css -o ./src/Tailwind/index.css && webpack serve --config webpack.dev.js ",
-        "build": "rm -rf dist && tailwind build ./src/Tailwind/index.css -o ./src/Tailwind/index.css && webpack --config webpack.prod.js",
+        "start": "tailwind build ./public/index.css -o ./src/Tailwind/index.css && webpack serve --config webpack.dev.js ",
+        "build": "rm -rf dist && tailwind build ./public/index.css -o ./src/Tailwind/index.css && webpack --config webpack.prod.js",
         "test": "jest --watch /tests",
         "server": "rm -rf dist && webpack --config webpack.prod.js && node server.js"
     },
@@ -43,7 +43,8 @@
         "cors": "^2.8.5",
         "css-loader": "^5.0.1",
         "express": "^4.17.1",
-        "html-webpack-plugin": "^4.5.0",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.0.0",
         "knex": "^0.21.13",
         "pg": "^8.5.1",
         "postcss-loader": "^4.1.0",
